@@ -1,0 +1,56 @@
+{% extends "master.html" %}
+{% block maincontent %}
+<section class="content">
+      <div class="row">
+        <div class="col-12">
+          
+          <!-- /.card -->
+
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Apps</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+             <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>App</th>
+                  <th>User.</th>
+                  <th>Review</th>
+                  <th>Rating</th>
+
+                  
+                </tr>
+                </thead>
+                <tbody>
+                {% for al in data %}
+                  <tr>
+                    <td>{{al.appname}}</td>
+                   
+                    <td>{{al.username}}</td>
+                    <td>{{al.review}}</td>
+                    <td>{{al.rating}}</td>
+                   
+                    
+                  </tr>
+                {% endfor %}
+               
+               
+                </tbody>
+                <tfoot>
+                
+                </tfoot>
+              </table>
+        
+
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+{% endblock %}

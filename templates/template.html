@@ -1,0 +1,161 @@
+{% extends "master.html" %}
+{% block maincontent %}
+
+
+<section class="content">
+  <div class="row">
+    <div class="col-12">
+
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">DataTable with default features</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+          <table id="example1" class="table table-bordered table-striped">
+            <thead>
+            <tr>
+              <th>Appname</th>
+              <th>Description</th>
+              <th>Developer</th>
+              <th>Size</th>
+            </tr>
+            </thead>
+            <tbody>
+              {% for al in data %}
+              <tr>
+                 <td>{{al.appname}}</td>
+                 <td>{{al.description}}</td>
+                 <td>{{al.developer}}</td>
+                 <td>{{al.size}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+            <tfoot>
+            <tr>
+                <th>Appname</th>
+                <th>Description</th>
+                <th>Developer</th>
+                <th>Size</th>
+            </tr>
+            </tfoot>
+          </table>
+        </div>
+        <!-- /.card-body -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">DataTable with default features</h3>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+          <table id="example1" class="table table-bordered table-striped">
+            <thead>
+            <tr>
+              <th>Appname</th>
+              <th>Username</th>
+              <th>Review</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>PUBG</td>
+              <td>Hunting</td>
+              <td>James</td>
+            </tr>
+            <tr>
+              <td>PUBG</td>
+              <td>Hunting</td>
+              <td>James</td>
+            </tr>
+            <tr>
+              <td>PUBG</td>
+              <td>Hunting</td>
+              <td>James</td>
+            </tr>
+            <tr>
+              <td>PUBG</td>
+              <td>Hunting</td>
+              <td>James</td>
+            </tr>
+            <tr>
+              <td>PUBG</td>
+              <td>Hunting</td>
+              <td>James</td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+              <th>Appname</th>
+              <th>Username</th>
+              <th>Review</th>
+            </tr>
+            </tfoot>
+          </table>
+        </div>
+        <!-- /.card-body -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">DataTable with default features</h3>
+          </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+          <table id="example1" class="table table-bordered table-striped">
+            <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Username</th>
+              <th>Password</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>PUBG</td>
+              <td>Hunting</td>
+              <td>James</td>
+              <td>400MB</td>
+            </tr>
+            <tr>
+              <td>PUBG</td>
+              <td>Hunting</td>
+              <td>James</td>
+              <td>400MB</td>
+            </tr>
+            <tr>
+              <td>PUBG</td>
+              <td>Hunting</td>
+              <td>James</td>
+              <td>400MB</td>
+            </tr>
+            <tr>
+              <td>PUBG</td>
+              <td>Hunting</td>
+              <td>James</td>
+              <td>400MB</td>
+            </tr>
+            <tr>
+              <td>PUBG</td>
+              <td>Hunting</td>
+              <td>James</td>
+              <td>400MB</td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Username</th>
+              <th>Password</th>
+            </tr>
+            </tfoot>
+          </table>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+    </div>
+    <!-- /.col -->
+  </div>
+  <!-- /.row -->
+</section>
+{% endblock %}

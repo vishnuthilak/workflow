@@ -1,0 +1,63 @@
+{% extends "master.html" %}
+{% block maincontent %}
+<section class="content">
+      <div class="row">
+        <div class="col-12">
+          
+          <!-- /.card -->
+
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Work Progress</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+             <form action="sendreview" method="post">
+             {% csrf_token %} 
+        <div class="input-group mb-3">
+          <select  class="form-control" name="appName" placeholder="User Name">
+                {% for al in data %}
+                 <option value="{{al.id}}">{{al.workname}}</option>
+                {% endfor %}
+          </select>
+          
+        </div>
+        <input value="{{id}}" name="workid" type="hidden" >
+        <div class="input-group mb-3">
+          <textarea  class="form-control" name="review" >
+          </textarea>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+
+         <div class="input-group mb-3">
+          <select  class="form-control" name="status" placeholder="User Name">
+              <option value="Working">Working</option>
+               <option value="Completed">Completed</option>
+          </select>
+          
+        </div>
+
+        <div class="row">
+          
+          <!-- /.col -->
+          <div class="col-4">
+            <button type="submit" class="btn btn-primary btn-block">Send</button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
+
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+{% endblock %}

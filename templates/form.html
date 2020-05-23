@@ -1,0 +1,29 @@
+{% extends "htmldisplay.html" %}
+{% block a %}
+<section class="content">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <a href="entry_adv_assign.php" class="btn btn-primary">Add case DATA</a>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                <form action="postData" method="POST">
+                    <input type="text" name="appname" />
+                    <input type="text" name="description" />
+                    <input type="developer" name="developer" />
+                    <input type="submit" />
+                </form>
+                </div> 
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.col -->
+     </div>
+     <!-- /.row -->
+</section>
+{% endblock %}
+
+
