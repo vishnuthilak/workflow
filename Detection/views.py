@@ -20,7 +20,32 @@ def home(request):
 def reg(request):
     return render(request,"reg.html")
 def temp(request):
-    return render(request,"template.html")
+    wa=WorkAssign.objects.all().select_related().all()
+    joined = []
+   
+    for x in wa:
+        joined.append({
+            
+            'workname': x.workname,
+            'workprogress': x.workname.workprogres,
+            'id': int(x.id),
+            'workid':x.workname.id,
+            'developer':x.username,
+            'date':str(x.workDate).split()[0],
+
+        })
+
+
+   
+
+    my_dict={
+        'data':joined,
+        'username':request.POST.get('username')
+    }
+    print ("dict['Name']: ", my_dict['username'])
+    return render(request,'template.html',context=my_dict)
+    
+
 def login(request):
     return render(request,"login.html")
 def register(request):
@@ -75,9 +100,14 @@ def user_chk(request):
 
         if userData.count()>0:
             for us in userData:
-                request.session["sid"]=us.id
-                print(us.id)
-                return loadData(request)
+                if us.desg == 'developer':
+                    request.session["sid"]=us.id
+                    print(us.id)
+                    return loadData(request)
+                elif us.desg == 'project manager':
+                    request.session["sid"]=us.id
+                    print(us.id)
+                    return temp(request)
         else:
             my_dict={
             'A':"Wrong Password", 
@@ -128,6 +158,6 @@ def saveUser(request):
         ur.username=request.POST.get('username')
         ur.email=request.POST.get('email')
         ur.password=request.POST.get('password')
-        ur.desg=request.POST.get('status')
+        ur.desg=request.POST.get('desg')
         ur.save()
     return render(request,"login.html") 

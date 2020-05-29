@@ -33,6 +33,7 @@ urlpatterns = [
     path('sendreview',views.sendreview,name="sendreview"),
     path('seereview',views.seereview,name="seereview"),
     path('saveUser',views.saveUser,name="saveUser"),
+    
 
 ]
 
