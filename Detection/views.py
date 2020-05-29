@@ -14,7 +14,7 @@ def home(request):
     mydict={
         "id":"1001",
         "name":"Athira",
-        "course":"MCA"
+        "course":"MCAd"
     }
     return render(request,"student.html", context=mydict)
 def reg(request):
@@ -44,10 +44,27 @@ def postData(request):
     return HttpResponse(a)
 
 def loadData(request):
-    wa=WorkAssign.objects.filter(username__id=request.session["sid"])
+    wa=WorkAssign.objects.filter(username__id=request.session["sid"]).select_related('workname').all()
+    joined = []
+   
+    for x in wa:
+        joined.append({
+            
+            'workname': x.workname.workname,
+            'workprogress': x.workname.workprogres,
+            'id': int(x.id),
+            'workid':x.workname.id,
+
+        })
+
+
+   
+
     my_dict={
-        'data':wa
+        'data':joined,
+        'username':request.POST.get('username')
     }
+    print ("dict['Name']: ", my_dict['username'])
     return render(request,'app.html',context=my_dict)
 
 def user_chk(request):
@@ -79,14 +96,21 @@ def reviewApp(request):
     return render (request,"reviewapp.html",context=my_dict)
 
 def sendreview(request):
-    if request.method=="POST":
+     if request.method=="POST":
+        obj= Work.objects.get(pk=request.POST.get("workid"))
+        print(obj.workprogres)
+        obj.workprogres = request.POST.get("status")
+        obj.save()
+        return loadData(request)
+
+     if request.method=="POST1":
         msg=WorkProgress()
         msg.work=get_object_or_404(WorkAssign, pk=request.POST.get("workid"))
         msg.username=get_object_or_404(User, pk=request.session["sid"])
         msg.detail=request.POST.get("review")
         msg.status=request.POST.get("status")
         msg.save()
-    return loadData(request)
+        return loadData(request)
 
 
 def seereview(request):
@@ -98,11 +122,12 @@ def seereview(request):
 
 
 def saveUser(request):
-	if request.method=="POST":
-		ur=User()
-		ur.name=request.POST.get('name')
-		ur.username=request.POST.get('username')
-		ur.email=request.POST.get('email')
-		ur.password=request.POST.get('password')
-		ur.save()
-	return render(request,"login.html")
+    if request.method=="POST":
+        ur=User()
+        ur.name=request.POST.get('name')
+        ur.username=request.POST.get('username')
+        ur.email=request.POST.get('email')
+        ur.password=request.POST.get('password')
+        ur.desg=request.POST.get('status')
+        ur.save()
+    return render(request,"login.html") 

@@ -60,7 +60,16 @@
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user (optional) -->
+      <div class="user-panel">
       
+      <div class="pull-left info">
+        <p>{% block sidebarusername %}    
+    {% endblock %}</p>
+        <!-- Status -->
+        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+      </div>
+    </div>
+
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
@@ -141,6 +150,7 @@
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
+    
   </aside>
   <!-- /.control-sidebar -->
 </div>

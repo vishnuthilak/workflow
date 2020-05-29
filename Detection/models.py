@@ -14,6 +14,8 @@ class User(models.Model):
     email=models.CharField(max_length=250)
     username=models.CharField(max_length=250)
     password=models.CharField(max_length=250)
+    desg=models.CharField(max_length=250)
+
     def __str__(self):
         return self.name
 
@@ -32,7 +34,8 @@ class blockwords(models.Model):
 
 
 class Work(models.Model):   
-    workname=models.CharField(max_length=25)    
+    workname=models.CharField(max_length=25)
+    workprogres=models.CharField(max_length=25)    
     def __str__(self):
         return self.workname 
 

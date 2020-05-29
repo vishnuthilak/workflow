@@ -5,7 +5,7 @@
         <div class="col-12">
           
           <!-- /.card -->
-
+ 
           <div class="card">
             <div class="card-header">
               <h3 class="card-title">Apps</h3>
@@ -17,7 +17,7 @@
                 <tr>
                   <th>Work Name</th>
                   
-                  <th>Enter Progress</th>
+                  <th>Work Progress</th>
                   
 
                   
@@ -27,7 +27,9 @@
                 {% for al in data %} 
                   <tr>
                     <td>{{al.workname}}</td>
-                    <td><a href="reviewApp?workid={{al.workname.id}}&id={{al.id}}"> Progress </a></td>
+                    <td><a href="reviewApp?workid={{al.workid}}&id={{al.id}}"><button type="submit" class="btn btn-primary btn-block">{{al.workprogress}}</button></a></td>
+                    
+                   
                     
                     
                   </tr>
@@ -50,4 +52,8 @@
       </div>
       <!-- /.row -->
     </section>
+{% endblock %}
+
+{% block sidebarusername %}
+{{username}}
 {% endblock %}
